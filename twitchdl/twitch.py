@@ -44,6 +44,7 @@ def gql_query(query: str, headers: Dict[str, str] = {}):
     response = authenticated_post(url, json={"query": query}, headers=headers).json()
 
     if "errors" in response:
+        print(response)
         raise GQLError(response["errors"])
 
     return response
